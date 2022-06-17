@@ -1,0 +1,26 @@
+@import "./App.css";
+
+nav{
+    display: flex;
+    flex-direction: row;
+    a{
+        text-decoration: none;
+        color: white;
+        transition: all 0.125s ease;
+        img{
+            color: white;
+        }
+    }
+    a:hover{
+        color: var(--background-container-teal);
+        transition: all 0.125s ease;
+    }
+
+
+    ul{
+        list-style: none;
+    }
+    flex-grow: 1;
+    justify-content: space-between;
+    padding: 1.5rem;
+}
