@@ -1,5 +1,6 @@
 from datetime import datetime
 from email.policy import default
+import json
 from fastapi import FastAPI, Response
 import secrets
 import databases
@@ -132,12 +133,15 @@ async def return_user_info(accountId: str, response: Response):
     list = []
     query = users.select().where(users.c.accountId == accountId)
     user_info = await database.fetch_one(query)
-    list.append(user_info)
+    list.append({"user_info" : user_info})
     query = transactions.select().where(transactions.c.sender == accountId) 
     user_transactions = await database.fetch_all(query)
-
+    list.append({"transactions" : user_transactions})
+    query = withdraws.select().where(withdraws.c.IDaccount == accountId) ##DA SISTEMARE IN CASO
+    user_withdraw = await database.fetch_all(query)
+    list.append({"withdraws" : user_withdraw})
     response.headers["X-Sistema-Bancario"] = user_info[1]+";"+user_info[2]
-    return (list + user_transactions)
+    return (list)
 
 @app.post("/api/account/{accountId}")
 async def deposit_user(accountId: str, amount: float):

@@ -6,21 +6,37 @@ nav{
     a{
         text-decoration: none;
         color: white;
-        transition: all 0.125s ease;
-        img{
-            color: white;
+        transition: all 0.1s ease-in-out;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        li{
+        }
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 1,
+            'wght' 100,
+            'GRAD' -25,
+            'opsz' 40;
+            margin: 0rem 0.2rem;
         }
     }
     a:hover{
         color: var(--background-container-teal);
-        transition: all 0.125s ease;
+        transition: all 0.1s ease-in-out;
+        
     }
 
 
     ul{
         list-style: none;
+        display: flex;
+        flex-direction: row;
+        li{
+            margin: 0rem 1rem;
+        }
     }
     flex-grow: 1;
     justify-content: space-between;
-    padding: 1.5rem;
+    padding: 1.8rem 3rem;
 }

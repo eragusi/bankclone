@@ -1,0 +1,136 @@
+#home{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ricerca-text{
+  
+    .material-symbols-outlined {
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 100;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+        user-select: none;
+    }
+
+    .material-symbols-outlined:hover {
+        transition: all 0.15s ease-in-out;
+        font-weight: 900;
+        color: var(--background-container-teal); 
+    }
+
+    .material-symbols-outlined:active {
+        transition: all 0.15s ease-in-out;
+        font-weight: 900;
+        color: rgba(255, 0, 0, 0.568); 
+    }
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 65rem;
+    max-width: 95%;
+    h2,h1{
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+}
+
+.ricerca-input{
+    max-width: 95%;
+    width: 65rem;
+    margin: 2.5rem;
+    display: flex;
+    #ricerca-input{
+        margin-right: 1rem;
+        flex-grow: 1;
+        height: 3rem;
+        border-radius: 0.5rem;
+        padding: 0rem;
+        border: none;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        //border: 1px solid rgba(0, 0, 0, 0.25);
+        background-color: var(--background-container-light);
+        color: white;
+        outline: none;
+        //box-shadow: 1px 1px black;
+        transition: box-shadow 0.2s ease-in-out;
+    }
+    #ricerca-button{
+        padding: 0rem 2rem;
+        border-radius: 0.4rem;
+        background-color: var(--background-container-light);
+        //border: 1px solid rgba(0, 0, 0, 0.25);
+        color: white;
+        font-weight: 300;
+        font-size: 1.1rem;
+        border: none;
+        cursor: pointer;
+    }
+    #ricerca-input:focus{
+        border-color: var(--background-container-teal);
+        box-shadow: 0 0 0 3px var(--background-container-teal);   
+        transition: box-shadow 0.3s ease-in-out;
+    }
+}
+
+table{
+    width: 70rem;
+    thead{
+        margin: 2rem;
+    }
+}
+table, td, th {
+    text-align: center;
+    color: white;
+    //border: 1px solid #ddd;
+    //padding: 8px;
+  }
+
+.tab-list{
+    color: white;
+    width: 65rem;
+    max-width: 95%;
+    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.13);
+    border-image: initial;
+    border-width: 0px 0px 1px;
+    button{
+        //margin: 0rem 1rem;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        color: inherit;
+        background-color: transparent;
+        border-style: solid;
+        border-color: transparent;
+        border-image: initial;
+        border-width: 1px 1px 0px;
+        border-radius: 0.25rem 0.25rem 0px 0px;
+        font-size: 100%;
+        padding: 1.5rem 1.5rem;
+        margin: 0px 0px -1px;
+        cursor: pointer;
+        transition: border-bottom 0.2s ease-in-out;
+    }
+
+    button:focus{
+        transition: border-bottom 0.2s ease-in-out;
+        border-bottom: 1px solid var(--background-container-teal);
+    }
+
+}

@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100;200;300;400;500;600;700;800&display=swap');
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Anek Malayalam', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-size: 1.025rem;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -144,7 +145,7 @@
   --background-button-primary-pressed: rgb(72, 172, 152);
   --background-button-primary-disabled: rgb(232, 242, 238);
   --background-button-secondary: rgb(255, 255, 255);
-  --background-container-teal: rgb(72, 172, 152);
+  --background-container-teal: rgb(17, 143, 160);
   --background-container-rhubarb: rgb(203, 124, 122);
   --background-container-wheat: rgb(200, 157, 88);
   --background-container-petrol: rgb(43, 105, 122);
