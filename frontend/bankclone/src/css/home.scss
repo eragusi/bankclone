@@ -83,6 +83,7 @@
 
 table{
     width: 70rem;
+    max-width: 95%;
     thead{
         margin: 2rem;
     }
@@ -92,6 +93,9 @@ table, td, th {
     color: white;
     //border: 1px solid #ddd;
     //padding: 8px;
+  }
+  tr{
+    height: 2.5rem;
   }
 
 .tab-list{

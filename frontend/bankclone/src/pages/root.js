@@ -10,7 +10,6 @@ export default function Root(){
     const toolbar = useToolbarState({ loop: true });
     let [accountId, setAccountId] = useState("");
     let [fetchedData, setFetchedData] = useState(false);
-    let fetchData
     let [userInfo, setUserInfo] = useState([]);
     let [transactions, setTransactions] = useState([]);
     let [withdraws, setWithdraws] = useState([]);
@@ -28,7 +27,7 @@ export default function Root(){
                     </tr>
                     <tr>
                     {Object.keys(userInfo).map((keyName, i) => (
-                        <td >{userInfo[keyName]}</td>
+                        <td >{userInfo[keyName]}{keyName =="balance" && " €"}</td>
                     ))}
                     </tr>
                 </tbody>
@@ -52,8 +51,33 @@ export default function Root(){
                             <td>{item.sender}</td>
                             <td>{item["receiver"]}</td>
                             <td>{item['transactionId']}</td>
-                            <td>{item['amount']}</td>
+                            <td>{item['amount']} €</td>
                             <td>{item['transactionDate']}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        )
+    }
+
+    function WithdrawsTable(){
+        return(
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Account Id</th>
+                        <th>Quantità</th>
+                        <th>Withdraw Id</th>
+                        <th>Prelievo/Versamento</th>
+                        <th>Data</th>
+                    </tr>
+                    {withdraws.map((item, i) => (
+                        <tr key={i}>
+                            <td>{item.IDaccount}</td>
+                            <td>{item.quantity} €</td>
+                            <td>{item.withdrawId}</td>
+                            <td>{item.operationType}</td>
+                            <td>{item.operationDate}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -72,7 +96,7 @@ export default function Root(){
             </TabList>
             <TabPanel {...tab}><UserTable/></TabPanel>
             <TabPanel {...tab}><TransactionsTable/></TabPanel>
-            <TabPanel {...tab}>Tab 3</TabPanel>
+            <TabPanel {...tab}><WithdrawsTable/></TabPanel>
             </>
         )
     }
@@ -108,14 +132,15 @@ export default function Root(){
     }
 
     function reset_data(){
-
+        setFetchedData(false);
+        setAccountId("");
     }
 
     return(
         <div id="home">
             <div className="ricerca-text">
                 <h2>Ricerca utente</h2>
-                <span className="material-symbols-outlined">
+                <span onClick={reset_data} className="material-symbols-outlined">
                 close
                 </span>
             </div>

@@ -75,8 +75,8 @@ class User(BaseModel):
     accountDate: datetime
     
 class UserIn(BaseModel):
-    name: constr(min_length=2, max_length=10)
-    surname: constr(min_length=2, max_length=10)
+    name: constr(min_length=2, max_length=20)
+    surname: constr(min_length=2, max_length=20)
     balance: confloat(multiple_of=0.5)
     ##accountDate: datetime
 
@@ -119,7 +119,7 @@ async def insert_user(user: UserIn = None):
     query = users.insert().values(accountId=id, name=user.name, surname=user.surname, balance=user.balance, accountDate= datetime.now())
     await database.execute(query)
 
-    return {"id": id}
+    return {"accountId": id}
 
 @app.delete("/api/account")
 async def remove_user(id: str):
@@ -133,6 +133,8 @@ async def return_user_info(accountId: str, response: Response):
     list = []
     query = users.select().where(users.c.accountId == accountId)
     user_info = await database.fetch_one(query)
+    if (user_info == None):
+        return {"Error": "Utente inesistente"}
     list.append({"user_info" : user_info})
     query = transactions.select().where(transactions.c.sender == accountId) 
     user_transactions = await database.fetch_all(query)
@@ -214,7 +216,6 @@ async def divert_transaction(Divert: DivertIn):
         return{"Error": "Sender has not enough money!"}
 
     return uuid
-
 
 async def check_sender_balance(sender: str, amount):
     balance_query = users.select().where(users.c.accountId == sender) 
